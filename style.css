@@ -1,8 +1,22 @@
+/******
+*General CSS
+*/
+
 body{
     margin:0;
     padding: 0;
     box-sizing: border-box;
 }
+button:focus{
+    outline: 0 !important;
+}
+a{
+    text-decoration: none;
+}
+
+/***
+* Classic CSS
+*/
 nav{
     background-color: rgb(77, 77, 77);
     align-items: center;
@@ -14,8 +28,12 @@ nav ul{
     align-items: center;
     justify-content: space-around;
     padding: 0;
-    margin: 0;
- 
+    margin: 0
+}
+@media (max-width:768px){
+    nav ul{
+        display: none !important;
+    }
 }
 nav ul li{
     list-style: none;
@@ -33,6 +51,39 @@ nav ul li:first-child{
     text-transform: uppercase;
     letter-spacing: 1.2px;
 }
+
+/***********
+*   Burger menu
+*/
+.burger{
+    display: none;
+}
+.brand{
+    display: none;
+}
+@media (max-width:768px){
+    .burger{
+        display: block;
+        position: absolute;
+        right: 5px;
+    }
+    .burger button{
+        background-color: black;
+        color: white;
+        border-color: transparent;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .brand{
+        display: block;
+        position: absolute;
+        left: 5px;
+        font-weight: 600;
+
+    }
+}
+
 .carousel{
     width: 100%;
     height: 400px;
@@ -55,6 +106,11 @@ nav ul li:first-child{
     display: inline-flex;
     justify-content: space-around;
 }
+@media (max-width:768px){
+    .articles{
+        flex-direction: column;
+    }
+}
 .articles article{
     width: 30%;
     height: 500px;
@@ -64,7 +120,13 @@ nav ul li:first-child{
     justify-content: center;
     align-items: center;
 }
-article button{
+@media (max-width:768px){
+    .articles article{
+        width: 90%;
+        margin: 25px auto;
+    }
+}
+article a{
     display: none;
     transition: all 0.6s cubic-bezier(.79,.08,.86,.43);
     animation: bigger 1s forwards;
@@ -80,7 +142,7 @@ article button{
 }
 @keyframes bigger{
     0%{
-        transform: translateY(-250px);
+        transform: translateY(-150px);
     }
     100%{
         transform: translateY(0px);
@@ -90,13 +152,9 @@ article button{
 .articles article:nth-child(1):hover{
     background-color: aqua;
 }
-.articles article:nth-child(1):hover button{
+.articles article:nth-child(1):hover a, .articles article:nth-child(2):hover a,.articles article:nth-child(3):hover a{
     display: block;
 }
-button:hover{
-    transform: scale(1.1);
-}
-
 .articles article:nth-child(2):hover{
     background-color: rgb(8, 37, 129);
 }
